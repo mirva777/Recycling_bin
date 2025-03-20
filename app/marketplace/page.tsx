@@ -101,7 +101,7 @@ export default function MarketplacePage() {
                   category="Fertilizer"
                   chemicals={["Beneficial Microorganisms", "Calcium Carbonate", "Humic Acids"]}
                   images={[
-                    "app/marketplace/images/green_stuff.jpg",
+                    "images/green_stuff.jpg",
                     "/placeholder.svg?height=300&width=300",
                     "/placeholder.svg?height=300&width=300",
                   ]}
