@@ -102,7 +102,7 @@ export default function MarketplacePage() {
                   chemicals={["Beneficial Microorganisms", "Calcium Carbonate", "Humic Acids"]}
                   images={[
                     "app/marketplace/images/green_stuff.jpg",
-                    "/placeholder.svg?height=300&width=300",
+                    "green_stuff.jpg",
                     "/placeholder.svg?height=300&width=300",
                   ]}
                 />
