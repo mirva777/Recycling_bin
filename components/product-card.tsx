@@ -1,12 +1,11 @@
 "use client"
 
-import Image from "next/image"
-import { useState } from "react"
-import { ShoppingCart, Star, ChevronLeft, ChevronRight, Info } from "lucide-react"
+import { ShoppingCart, Star, Info } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { ProductImage } from "./product-image"
 
 interface ProductCardProps {
   name: string
@@ -29,50 +28,13 @@ export function ProductCard({
   chemicals = [],
   images = [],
 }: ProductCardProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const allImages = images.length > 0 ? images : [image]
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % allImages.length)
-  }
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev === 0 ? allImages.length - 1 : prev - 1))
-  }
 
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg">
-      <div className="relative aspect-square overflow-hidden">
+      <div className="relative">
         <Badge className="absolute top-2 right-2 z-10 bg-green-600">{category}</Badge>
-
-        {allImages.length > 1 && (
-          <>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute left-2 top-1/2 z-10 h-8 w-8 -translate-y-1/2 rounded-full bg-white/80 p-0"
-              onClick={prevImage}
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute right-2 top-1/2 z-10 h-8 w-8 -translate-y-1/2 rounded-full bg-white/80 p-0"
-              onClick={nextImage}
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </>
-        )}
-
-        <Image
-          src={allImages[currentImageIndex] || "/placeholder.svg"}
-          alt={name}
-          width={300}
-          height={300}
-          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-        />
+        <ProductImage images={allImages} name={name} />
       </div>
       <CardContent className="p-4">
         <div className="flex items-center justify-between mb-1">
@@ -121,4 +83,3 @@ export function ProductCard({
     </Card>
   )
 }
-

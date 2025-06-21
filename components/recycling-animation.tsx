@@ -24,8 +24,8 @@ export function RecyclingAnimation() {
     resizeCanvas()
     window.addEventListener("resize", resizeCanvas)
 
-    // Create recycling symbols
-    class RecyclingSymbol {
+    // Create food particles
+    class FoodParticle {
       x: number
       y: number
       size: number
@@ -34,16 +34,22 @@ export function RecyclingAnimation() {
       color: string
       opacity: number
       speed: number
+      type: string
 
       constructor(canvas: HTMLCanvasElement) {
         this.x = Math.random() * canvas.width
         this.y = Math.random() * canvas.height
-        this.size = Math.random() * 20 + 10
+        this.size = Math.random() * 15 + 5
         this.rotation = Math.random() * Math.PI * 2
         this.rotationSpeed = (Math.random() - 0.5) * 0.02
-        this.color = `rgba(${Math.floor(Math.random() * 100)}, ${Math.floor(Math.random() * 100 + 155)}, ${Math.floor(Math.random() * 100)}, 0.2)`
-        this.opacity = Math.random() * 0.5 + 0.1
+        this.opacity = Math.random() * 0.3 + 0.1
         this.speed = Math.random() * 0.5 + 0.1
+
+        const foodTypes = ["🍎", "🥕", "🍞", "🥬", "🍌"]
+        this.type = foodTypes[Math.floor(Math.random() * foodTypes.length)]
+
+        const colors = ["rgba(255, 165, 0, 0.2)", "rgba(255, 140, 0, 0.2)", "rgba(255, 69, 0, 0.2)"]
+        this.color = colors[Math.floor(Math.random() * colors.length)]
       }
 
       update(canvas: HTMLCanvasElement) {
@@ -61,38 +67,32 @@ export function RecyclingAnimation() {
         ctx.translate(this.x, this.y)
         ctx.rotate(this.rotation)
         ctx.globalAlpha = this.opacity
+
+        // Draw simple circle with food color
         ctx.fillStyle = this.color
-
-        // Draw recycling arrow triangle
         ctx.beginPath()
-        const arrowSize = this.size
-
-        // First arrow
-        ctx.moveTo(0, -arrowSize)
-        ctx.lineTo(arrowSize * 0.866, arrowSize * 0.5)
-        ctx.lineTo(-arrowSize * 0.866, arrowSize * 0.5)
-        ctx.closePath()
+        ctx.arc(0, 0, this.size, 0, Math.PI * 2)
         ctx.fill()
 
         ctx.restore()
       }
     }
 
-    // Create multiple symbols
-    const symbols: RecyclingSymbol[] = []
-    const symbolCount = Math.floor((canvas.width * canvas.height) / 15000) // Adjust density based on screen size
+    // Create multiple particles
+    const particles: FoodParticle[] = []
+    const particleCount = Math.floor((canvas.width * canvas.height) / 20000)
 
-    for (let i = 0; i < symbolCount; i++) {
-      symbols.push(new RecyclingSymbol(canvas))
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new FoodParticle(canvas))
     }
 
     // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      symbols.forEach((symbol) => {
-        symbol.update(canvas)
-        symbol.draw(ctx)
+      particles.forEach((particle) => {
+        particle.update(canvas)
+        particle.draw(ctx)
       })
 
       requestAnimationFrame(animate)
@@ -107,4 +107,3 @@ export function RecyclingAnimation() {
 
   return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />
 }
-

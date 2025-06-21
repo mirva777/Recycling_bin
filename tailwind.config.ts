@@ -26,32 +26,32 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#16a34a", // green-600
-          foreground: "#ffffff",
+          DEFAULT: "hsl(24.6 95% 53.1%)",
+          foreground: "hsl(0 0% 98%)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "hsl(240 3.7% 15.9%)",
+          foreground: "hsl(0 0% 98%)",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "hsl(0 84.2% 60.2%)",
+          foreground: "hsl(0 0% 98%)",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "hsl(240 3.7% 15.9%)",
+          foreground: "hsl(240 5% 64.9%)",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "hsl(240 3.7% 15.9%)",
+          foreground: "hsl(0 0% 98%)",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "hsl(0 0% 100%)",
+          foreground: "hsl(240 10% 3.9%)",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "hsl(0 0% 100%)",
+          foreground: "hsl(240 10% 3.9%)",
         },
       },
       borderRadius: {
@@ -79,4 +79,3 @@ const config = {
 } satisfies Config
 
 export default config
-

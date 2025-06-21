@@ -29,4 +29,3 @@ export const metadata = {
     images: ["/twitter-image.jpg"],
   },
 }
-

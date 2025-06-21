@@ -29,12 +29,12 @@ const products: Product[] = [
     rating: 4.8,
     reviewCount: 127,
     category: "Fertilizer",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/images/products/fertilizers/organic-compost.jpg",
     images: [
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
+      "/images/products/fertilizers/organic-compost.jpg",
+      "/images/products/fertilizers/organic-compost-2.jpg",
+      "/images/products/fertilizers/organic-compost-3.jpg",
+      "/images/products/fertilizers/organic-compost-4.jpg",
     ],
     chemicals: [
       "Beneficial Microorganisms (Bacillus subtilis, Trichoderma)",
@@ -61,11 +61,11 @@ const products: Product[] = [
     rating: 4.6,
     reviewCount: 89,
     category: "Fertilizer",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/images/products/fertilizers/plant-nutrient-mix.jpg",
     images: [
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
+      "/images/products/fertilizers/plant-nutrient-mix.jpg",
+      "/images/products/fertilizers/plant-nutrient-mix-2.jpg",
+      "/images/products/fertilizers/plant-nutrient-mix-3.jpg",
     ],
     chemicals: [
       "Nitrogen (derived from composted food waste)",
@@ -83,8 +83,11 @@ const products: Product[] = [
     rating: 4.7,
     reviewCount: 56,
     category: "Animal Feed",
-    image: "/placeholder.svg?height=300&width=300",
-    images: ["/placeholder.svg?height=600&width=600", "/placeholder.svg?height=600&width=600"],
+    image: "/images/products/animal-feed/poultry-feed-mix.jpg",
+    images: [
+      "/images/products/animal-feed/poultry-feed-mix.jpg",
+      "/images/products/animal-feed/poultry-feed-mix-2.jpg",
+    ],
     chemicals: [
       "Probiotics (Lactobacillus acidophilus)",
       "Vitamin E (natural preservative)",
@@ -101,11 +104,11 @@ const products: Product[] = [
     rating: 4.5,
     reviewCount: 112,
     category: "Fertilizer",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/images/products/fertilizers/soil-enhancer.jpg",
     images: [
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
+      "/images/products/fertilizers/soil-enhancer.jpg",
+      "/images/products/fertilizers/soil-enhancer-2.jpg",
+      "/images/products/fertilizers/soil-enhancer-3.jpg",
     ],
     chemicals: [
       "Humic Acid (from composted plant matter)",
@@ -123,8 +126,11 @@ const products: Product[] = [
     rating: 4.6,
     reviewCount: 43,
     category: "Animal Feed",
-    image: "/placeholder.svg?height=300&width=300",
-    images: ["/placeholder.svg?height=600&width=600", "/placeholder.svg?height=600&width=600"],
+    image: "/images/products/animal-feed/cattle-supplement.jpg",
+    images: [
+      "/images/products/animal-feed/cattle-supplement.jpg",
+      "/images/products/animal-feed/cattle-supplement-2.jpg",
+    ],
     chemicals: [
       "Protein Concentrate (from processed grain byproducts)",
       "Molasses (natural binder and energy source)",
@@ -152,4 +158,3 @@ export function getRelatedProducts(id: string, limit = 4): Product[] {
 
   return products.filter((product) => product.id !== id && product.category === currentProduct.category).slice(0, limit)
 }
-

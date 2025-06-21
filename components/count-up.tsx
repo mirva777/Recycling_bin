@@ -5,11 +5,12 @@ import { useEffect, useState, useRef } from "react"
 interface CountUpProps {
   end: number
   duration?: number
+  decimals?: number
   prefix?: string
   suffix?: string
 }
 
-export default function CountUp({ end, duration = 2000, prefix = "", suffix = "" }: CountUpProps) {
+export default function CountUp({ end, duration = 2000, decimals = 0, prefix = "", suffix = "" }: CountUpProps) {
   const [count, setCount] = useState(0)
   const countRef = useRef(0)
   const startTimeRef = useRef<number | null>(null)
@@ -27,7 +28,7 @@ export default function CountUp({ end, duration = 2000, prefix = "", suffix = ""
       const easeOutQuad = (t: number) => t * (2 - t)
       const easedProgress = easeOutQuad(percentage)
 
-      countRef.current = Math.floor(easedProgress * end)
+      countRef.current = easedProgress * end
       setCount(countRef.current)
 
       if (percentage < 1) {
@@ -45,9 +46,8 @@ export default function CountUp({ end, duration = 2000, prefix = "", suffix = ""
   return (
     <span>
       {prefix}
-      {count}
+      {count.toFixed(decimals)}
       {suffix}
     </span>
   )
 }
-

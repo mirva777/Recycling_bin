@@ -27,10 +27,10 @@ export default function ProductPage({ params }: ProductPageProps) {
     category: "Fertilizer",
     stock: 35,
     images: [
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
+      `/images/products/fertilizers/${params.product}.jpg`,
+      `/images/products/fertilizers/${params.product}-2.jpg`,
+      `/images/products/fertilizers/${params.product}-3.jpg`,
+      `/images/products/fertilizers/${params.product}-4.jpg`,
     ],
     chemicals: [
       "Beneficial Microorganisms (Bacillus subtilis, Trichoderma)",
@@ -364,4 +364,3 @@ export default function ProductPage({ params }: ProductPageProps) {
     </div>
   )
 }
-

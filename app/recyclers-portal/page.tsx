@@ -40,7 +40,7 @@ export default function RecyclersPortalPage() {
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src="/images/banners/recyclers-portal-banner.jpg"
                 alt="Recycling process"
                 fill
                 className="object-cover rounded-lg"
@@ -184,7 +184,7 @@ export default function RecyclersPortalPage() {
             <div className="order-2 lg:order-1">
               <div className="relative h-[400px] rounded-lg overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/images/rewards-program.jpg"
                   alt="Rewards program"
                   fill
                   className="object-cover rounded-lg"
@@ -343,4 +343,3 @@ export default function RecyclersPortalPage() {
     </div>
   )
 }
-
